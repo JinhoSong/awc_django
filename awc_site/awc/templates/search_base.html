@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> {% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="btn-group btn-group-justified">
+      <a href="{% url 'awc:search_url' %}" class="btn btn-primary">URL</a>
+      <a href="{% url 'awc:search_file' %}" class="btn btn-primary" onclick="btnFunction(2)">등록자 ID</a>
+      <a href="#" class="btn btn-primary" onclick="btnFunction(3)">해시태그</a>
+  </div>
+               {% block content %}
+
+                {% endblock %}
+
+</body>
+</html>

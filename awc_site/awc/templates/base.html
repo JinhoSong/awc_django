@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title> {% block title %}{% endblock %}</title>
+
+
+</head>
+<style>
+    footer{
+        position: fixed;
+        bottom : 0;
+        width :100%;
+    }
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">AWC</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'awc:shared_main' %}">Home</a></li>
+          <li><a href="#">Upload</a></li>
+          <li><a href="{% url 'awc:show_space' %}">show_space</a></li>
+          <li><a href="{% url 'awc:shared_test' %}">test</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'awc:shared_notice' %}"><span class="glyphicon glyphicon-user"></span> notice</a></li>
+          {% if user.is_authenticated %}<!--로그인 성공시 if문 -->
+          <li><a href="{% url 'list' %}"><span class="glyphicon glyphicon-user"></span> {{user.get_username}}'s list</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+          {% else %}
+          <!--로그인 안했을때 else문  -->
+          <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+                {% block content %}
+
+                {% endblock %}
+
+</body>
+</html>

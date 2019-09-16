@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            {% extends 'base.html' %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title> {% block title %}Download{% endblock %}</title>
+      <link rel="stylesheet" href="{% static 'css/download.css' %}">
+
+    <style>
+        tr td {
+  padding: 2px 10px;
+  position: relative;
+}
+td .tooltip {
+  display: none;
+  animation: tooltipAni 1s;
+  transition: opacity 0.5s;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: #fff;
+}
+td:hover .tooltip {
+  display: block;
+}
+
+</style>
+</head>
+<body style="text-align:center;">
+
+<p>Move the mouse over the text below:</p>
+
+<div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+
+<p>Note that the position of the tooltip text isn't very good. Go back to the tutorial and continue reading on how to position the tooltip in an desirable way.</p>
+
+    {% endblock %}
+</body>
+</html>

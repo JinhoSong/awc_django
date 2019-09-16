@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'search_base.html' %}
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <title>테스트용 서치 폼</title>
+</head>
+<body>
+{% block content%}
+<div class="container">
+ <h1>search_test 으로 넘어왔습니다</h1>
+<form class="form-inline" action="{% url 'blog:index' %}" method="get">
+    <div class="input-group">
+        <select name="fd_name" id="" class="form-control">
+            <option value="title">title</option>
+            <option value="content">content</option>
+        </select>
+        <input type="text" class="form-control" name='q'>
+        <button class="btn btn-secondary" type="submit">Search</button>
+    </div>
+</form>
+</div>
+{% endblock %}
+</body>
+</html>
